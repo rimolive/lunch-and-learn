@@ -14,7 +14,7 @@ Create a jbossas-7.0 application
 
 Add this upstream lunch-and-learn repo
 
-    cd seambooking
+    cd lunchandlearn
     git remote add upstream -m master git://github.com/rimolive/lunch-and-learn.git
     git pull -s recursive -X theirs upstream master
 
