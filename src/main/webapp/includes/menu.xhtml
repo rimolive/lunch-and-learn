@@ -1,0 +1,20 @@
+<h:form
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<rich:toolbar>
+		<h:outputText value="Lunch and Learn:" />
+		<rich:dropDownMenu mode="ajax">
+			<f:facet name="label">
+				<h:outputText value="Testing" />
+			</f:facet>
+			<rich:menuItem>
+				<h:outputText value="Test1" />
+			</rich:menuItem>
+		</rich:dropDownMenu>
+	</rich:toolbar>
+	
+</h:form>
