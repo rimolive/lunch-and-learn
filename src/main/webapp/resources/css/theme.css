@@ -56,6 +56,16 @@ select {
 .body {
 	padding: 30px;
 }
+
+.search {
+	width: 300px;
+}
+
+.search input {
+	margin: 7px;
+	text-align: right;
+}
+
 .message {
 	padding: 5px;
 	list-style: none;

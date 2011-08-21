@@ -1,0 +1,30 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/template/main-template.xhtml">
+
+	<ui:define name="appMain">
+	
+		<h:form>
+			<rich:tabPanel>
+				<rich:tab value="Personal Information">
+					<div>
+						<h:outputText value="Employee #" />
+						<h:inputText value="" />
+					</div>
+				</rich:tab>
+			</rich:tabPanel>
+			<div>
+				<h:commandButton value="Save" action="#{employeeBean.create()}" />
+				<h:commandButton value="Save" action="#{employeeBean.merge()}" />
+				<h:button value="Cancel" outcome="/faces/pages/employee/list.xhtml" />
+			</div>
+		</h:form>
+	
+	</ui:define>
+	
+</ui:composition>

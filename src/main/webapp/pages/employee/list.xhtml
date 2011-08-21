@@ -1,0 +1,46 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/template/main-template.xhtml">
+
+	<ui:define name="appMain">
+
+		<h:form>
+			<rich:collapsiblePanel header="Search" switchType="ajax">
+				<div class="search">
+					<h:outputText value="Name:" />
+				</div>
+				<div class="search">
+					<h:outputText value="Employee #:" />
+				</div>
+			</rich:collapsiblePanel>
+		</h:form>
+		<br />
+		<h:outputText value="There is no employees!" rendered="#{empty employeeBean.list}" />
+		<rich:dataTable id="employeeTable" value="#{employeeBean.list}" var="employee" rendered="#{not empty employeeBean.list}" style="width: 100%;">
+			<rich:column>
+				<f:facet name="header">
+					<h:outputText value="Employee #" />
+				</f:facet>
+				<h:outputText value="#{employee.number}" />
+			</rich:column>
+			<rich:column>
+				<f:facet name="header">
+					<h:outputText value="Name" />
+				</f:facet>
+				<h:outputText value="#{employee.name}" />
+			</rich:column>
+		</rich:dataTable>
+		<center>
+			<rich:dataScroller for="employeeTable" />
+		</center>
+		<br />
+		<h:button outcome="/faces/pages/employee/form.xhtml" value="Create" />
+
+	</ui:define>
+
+</ui:composition>
