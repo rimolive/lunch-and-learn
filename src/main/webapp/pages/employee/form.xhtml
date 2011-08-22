@@ -10,17 +10,25 @@
 	<ui:define name="appMain">
 	
 		<h:form>
-			<rich:tabPanel>
-				<rich:tab value="Personal Information">
+			<rich:tabPanel switchType="client">
+				<rich:tab header="Personal Information">
 					<div>
 						<h:outputText value="Employee #" />
-						<h:inputText value="" />
+						<h:inputText value="#{employeeBean.employee.number}" maxlength="11" />
+					</div>
+					<div>
+						<h:outputText value="Name" />
+						<h:inputText value="#{employeeBean.employee.name}" maxlength="50" />
 					</div>
 				</rich:tab>
+				<rich:tab header="Salary &#38; Compensation">
+				
+				</rich:tab>
 			</rich:tabPanel>
+			<h:messages />
 			<div>
-				<h:commandButton value="Save" action="#{employeeBean.create()}" />
-				<h:commandButton value="Save" action="#{employeeBean.merge()}" />
+				<h:commandButton value="Save - Create" action="#{employeeBean.create()}" rendered="#{employeeBean.employee.id == null}" />
+				<h:commandButton value="Save - Update" action="#{employeeBean.merge()}" rendered="#{employeeBean.employee.id != null}" />
 				<h:button value="Cancel" outcome="/faces/pages/employee/list.xhtml" />
 			</div>
 		</h:form>

@@ -18,26 +18,33 @@
 					<h:outputText value="Employee #:" />
 				</div>
 			</rich:collapsiblePanel>
+			<br />
+			<h:outputText value="There is no employees!"
+				rendered="#{empty employeeBean.list}" />
+			<rich:dataTable id="employeeTable" value="#{employeeBean.list}"
+				var="employee" rendered="#{not empty employeeBean.list}"
+				style="width: 100%;">
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Employee #" />
+					</f:facet>
+					<h:outputText value="#{employee.number}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Name" />
+					</f:facet>
+					<h:outputText value="#{employee.name}" />
+				</rich:column>
+				<rich:column>
+					<h:commandButton value="Edit" action="#{employeeBean.load(employee.id)}" />
+					<h:commandButton value="Remove" action="#{employeeBean.remove(employee.id)}" />
+				</rich:column>
+			</rich:dataTable>
+			<center>
+				<rich:dataScroller for="employeeTable" />
+			</center>
 		</h:form>
-		<br />
-		<h:outputText value="There is no employees!" rendered="#{empty employeeBean.list}" />
-		<rich:dataTable id="employeeTable" value="#{employeeBean.list}" var="employee" rendered="#{not empty employeeBean.list}" style="width: 100%;">
-			<rich:column>
-				<f:facet name="header">
-					<h:outputText value="Employee #" />
-				</f:facet>
-				<h:outputText value="#{employee.number}" />
-			</rich:column>
-			<rich:column>
-				<f:facet name="header">
-					<h:outputText value="Name" />
-				</f:facet>
-				<h:outputText value="#{employee.name}" />
-			</rich:column>
-		</rich:dataTable>
-		<center>
-			<rich:dataScroller for="employeeTable" />
-		</center>
 		<br />
 		<h:button outcome="/faces/pages/employee/form.xhtml" value="Create" />
 

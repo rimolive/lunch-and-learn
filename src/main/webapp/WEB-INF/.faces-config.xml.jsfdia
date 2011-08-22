@@ -7,6 +7,9 @@
    <PROCESS-ITEM-OUTPUT ID="search::#pages#employee#list.xhtml"
     NAME="output" PATH="/pages/employee/list.xhtml"
     TARGET="rules:#pages#employee#list.xhtml" TITLE="search" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="load::#pages#employee#form.xhtml"
+    NAME="output1" PATH="/pages/employee/form.xhtml"
+    TARGET="rules:#pages#employee#form.xhtml" TITLE="load" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#employee#form.xhtml"
