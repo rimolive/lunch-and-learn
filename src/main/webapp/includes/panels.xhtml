@@ -1,0 +1,41 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<rich:popupPanel id="popup" modal="true" autosized="true"
+		resizeable="false">
+		<f:facet name="header">
+			<h:outputText value="Address Selection" />
+		</f:facet>
+		<f:facet name="controls">
+			<h:outputLink value="#"
+				onclick="#{rich:component('popup')}.hide(); return false;">
+                    X
+                </h:outputLink>
+		</f:facet>
+		<p>Any content might be inside this panel.</p>
+		<p>
+			The popup panel is open and closed from the javascript function of
+			component client side object. The following code <a href="#"
+				onclick="#{rich:component('popup')}.hide()">hide this panel</a>:
+			<f:verbatim>&#35;</f:verbatim>
+			{rich:component('popup')}.hide()
+		</p>
+	</rich:popupPanel>
+
+	<rich:popupPanel id="login" autosized="true" modal="true" moveable="false" resizeable="false">
+		<h:panelGrid columns="2">
+			<h:outputText value="Login" />
+			<h:inputText />
+			<h:outputText value="Password" />
+			<h:inputText />
+		</h:panelGrid>
+		<h:outputLink
+			onclick="#{rich:component('login')}.hide(event); return false;"
+			value="#">Login</h:outputLink>
+	</rich:popupPanel>
+
+</h:form>
